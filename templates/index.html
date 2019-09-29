@@ -22,6 +22,7 @@
 <div id="app" class="container">
 	<div class="header">
 		<img src="{{ url_for('static',filename='img/logo.png') }}" alt="LOGO" class="logo">
+		<span class="btn-open-source" @click="openSource()">开 源</span>
 	</div>
 	<div class="content">
 		<p class="context">
@@ -48,6 +49,9 @@
 						alert("Request Error");
 						console.log(JSON.stringify(error));
                     })
+            },
+			openSource:function () {
+				window.open("https://gitee.com/meditatech_yeliulee/PoisonWords");
             }
 		},
 		mounted:function () {
