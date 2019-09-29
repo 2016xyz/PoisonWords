@@ -1,0 +1,86 @@
+body{
+    margin:0 !important;
+}
+span{
+    outline: none !important;
+}
+
+.container{
+    width: 100%;
+    margin: 0;
+    background: url("/static/img/bg.jpg") no-repeat;
+    background-size: cover;
+}
+
+.header{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.logo{
+    height: 100%;
+}
+
+.content{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.context{
+    width: 90%;
+    font-size: 2rem;
+    padding: 0 5% 20vh 5%;
+    text-align: center;
+}
+
+.footer{
+    width: 99%;
+    position: absolute;
+    bottom: 5vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-get{
+    padding: 8px 24px;
+    font-size: 1.25rem;
+    background-color: #6E9090;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 25px;
+    user-select: none;
+    transition: 500ms all ease;
+}
+
+.btn-get:hover{
+    cursor: pointer;
+}
+
+.btn-get:active{
+    background-color: #FFFFFF;
+    color: #6E9090;
+    border: 2px solid #6E9090;
+}
+
+@media (min-width: 960px) {
+    .header{
+        width: 75%;
+        margin: 0 10vw;
+        padding-top: 3.125rem;
+    }
+}
+
+@media (max-width: 960px) {
+    .header{
+        width: 90%;
+        margin: 0 5vw;
+        padding-top: 1.125rem;
+    }
+}

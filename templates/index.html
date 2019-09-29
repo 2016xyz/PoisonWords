@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="render" content="webkit">
+	<meta name="author" content="yeliulee">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keyword" content="毒鸡汤,心灵鸡汤,人生苦短,心理学,夜琉璃">
+	<meta name="description" content="是否已经受够了五花八门的心灵鸡汤？那么来着看看直入灵魂毒鸡汤吧！毕竟人生苦短都没苦笑过有什么意思！">
+    <title>毒鸡汤 - 喝多了心灵鸡汤?换个口味吧!</title>
+	<meta property="og:title" content="毒鸡汤 - 喝多了心灵鸡汤?换个口味吧!">
+	<meta property="og:description" content="是否已经受够了五花八门的心灵鸡汤？那么来着看看直入灵魂毒鸡汤吧！毕竟人生苦短都没苦笑过有什么意思！">
+    <link rel="icon" sizes="128x128" href="{{url_for('static',filename='img/favicon.ico')}}">
+    <link rel="Bookmark" href="{{url_for('static',filename='img/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{url_for('static',filename='img/favicon.ico')}}">
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <script src="{{ url_for('static',filename='js/vue.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/axios.min.js') }}"></script>
+</head>
+<body>
+<div id="app" class="container">
+	<div class="header">
+		<img src="{{ url_for('static',filename='img/logo.png') }}" alt="LOGO" class="logo">
+	</div>
+	<div class="content">
+		<p class="context">
+				{{ "{{message}}" }}
+		</p>
+	</div>
+	<div class="footer">
+		<span class="btn-get" @click="getMore()">且再来一碗</span>
+	</div>
+</div>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            message:"{{ message }}"
+		},
+		methods:{
+            getMore:function () {
+				axios.get('/get_data')
+					.then((res)=> {
+						this.message = res.data;
+                    })
+					.catch(function (error) {
+						alert("Request Error");
+						console.log(JSON.stringify(error));
+                    })
+            }
+		},
+		mounted:function () {
+			this.$nextTick( ()=>{
+			    axios.get('/get_data')
+					.then((res)=> {
+						this.message = res.data;
+                    })
+					.catch(function (error) {
+						alert("Request Error");
+						console.log(JSON.stringify(error));
+                    })
+            });
+        }
+    });
+</script>
+</body>
+</html>
